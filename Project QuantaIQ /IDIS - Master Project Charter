@@ -1,0 +1,53 @@
+You are absolutely right to ask that, and my apologies for the oversight in the last summary. You are correct, my previous "Master Project Charter" did not explicitly call out the `app.py` and `run_ui.sh` files as completed. That was an error on my part.
+
+Thank you for helping me keep the project status perfectly accurate. Let's correct that now.
+
+Here is an updated version of the Project Charter that correctly reflects the completion of the Streamlit UI.
+
+---
+
+### **Project QuantaIQ / IDIS - Master Project Charter**
+
+**Version:** 1.5.2 (As of June 8, 2025)
+**Status:** ✅ Phase 1 Complete · ✅ Phase 1.5 Core Automation & UI Complete · 🟢 Phase 1.5 Usability Polish In Progress
+
+**1. Project Vision & Mission**
+
+* **Vision:** To create a "Swiss Army knife" for document intelligence. To transform the "digital black hole" of personal and small business documents into a structured, searchable, and intelligent knowledge base. The long-term vision is a turnkey, plug-and-play **Intelligent Document Appliance**.
+* **Mission:** To turn unstructured noise into structured knowledge. The system must be private (local-first), user-friendly, and highly automated.
+
+**2. Architecture & Key Features**
+
+* **Modular, Agent-Based Design:** The system is composed of distinct agents, each with a single responsibility.
+* **Hybrid Intelligence Model:** Uses fast, local tools (Tesseract) for bulk processing and powerful cloud AI (GPT-4o) surgically for high-value tasks.
+* **Database as the Source of Truth:** A local `ContextStore` (SQLite) holds all extracted text, metadata, summaries, and a comprehensive `audit_trail`.
+* **Automated "Appliance Mode":** The `watcher_service.py` provides continuous, real-time file monitoring and processing.
+* **Intelligent Filing & Naming:** The enhanced `TaggerAgent` implements a human-readable filing schema and descriptive filenames.
+* **Robust Data Handling:** Includes enhanced date parsing (`dateutil`), data validation, context-aware semantic tagging, and safe file moves.
+* **Interactive UI:** A web-based search dashboard (`app.py` using Streamlit) allows for intuitive searching and viewing of documents.
+
+**3. Current Project Status & Immediate Next Steps**
+
+The project is currently in Phase 1.5, focused on polishing the user experience.
+
+| Feature/Objective (Phase 1.5) | Status | Next Actions |
+| :--- | :--- | :--- |
+| **Simplified Startup Script (`run_local_idis.sh`)** | ✅ **Done** | --- |
+| **Continuous Watcher Service (`watcher_service.py`)** | ✅ **Done** | --- |
+| **TaggerAgent Filing, Naming & Data Quality** | ✅ **Done** | --- |
+| **Streamlit Search UI (`app.py` & `run_ui.sh`)**| ✅ **Done** | You have successfully run the UI on your Dell and identified a `DatabaseError` which the agent has now fixed. **The next step is to pull this latest fix from GitHub and re-test the UI on your Dell.** |
+| **Cover Sheet Formatting** | ⏳ **Planned**| Address the "two-page" issue and improve layout. |
+| **Console Display Bugs (`run_mvp.py`)** | ⏳ **Planned** | Fix display of summaries in console output. |
+| **Advanced Search Functionality** | ⏳ **Planned** | Upgrade the UI search to use FTS5 and search `document_dates`. |
+
+**4. Future Vision (Phase 2 & Beyond)**
+
+* **Full RAG 2.0 Implementation:** Add an **`EmbeddingAgent`** and a local **Vector DB** (ChromaDB/FAISS) to enable true semantic search.
+* **Advanced Cognitive Interface:** Evolve the Streamlit app into a comprehensive dashboard with proactive insights.
+* **Automated Document Separation:** Implement a `DocumentSeparatorAgent` (likely using barcodes or AI) to handle scanned batches containing multiple logical documents in a single file.
+* **Hardware Appliance:** Package the entire software stack (via Docker) onto a dedicated Mini PC with a scanner and touchscreen to create the final turnkey QuantaIQ product.
+
+---
+This updated charter now accurately reflects the completion of the initial Streamlit UI. I apologize again for my lapse in context.
+
+The immediate next step for you is to pull the latest commit from GitHub (which contains the fix for the `DatabaseError` in `app.py`) and test the UI on your Dell.
